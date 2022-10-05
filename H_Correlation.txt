@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    int no_of_input;
+    int mat , phy , chem ;
+    double summat =0 , sumphy=0, sumchem=0 , summatphy=0 , sumphychem=0 ,summatchem=0 ,sumsqmat=0, sumsqphy=0, sumsqchem=0,up1,up2,up3,d11,d12,d21,d22,d31,d32;
+    double rmatphy ,rphychem ,rmatchem;
+    scanf("%d", &no_of_input);
+    for(int i=0; i<no_of_input ; i++)
+    {
+    scanf("%d \t %d \t %d" , &mat, &phy , &chem );
+        //printf("%d \t %d \t %d \n" , mat , phy , chem);
+        summat = mat + summat;
+        sumphy = phy + sumphy;
+        sumchem = chem + sumchem;
+    
+
+        
+        summatphy = (mat*phy) + summatphy;
+        
+        sumphychem = (phy*chem) +sumphychem;
+        
+        summatchem = (mat*chem) + summatchem;
+        
+        
+        sumsqchem = sumsqchem +(chem * chem);
+        sumsqmat = sumsqmat + (mat * mat);
+        sumsqphy = sumsqphy + (phy *phy); 
+    }
+ 
+    up1 = (no_of_input*summatphy)-(summat * sumphy);
+    d11 = sqrt((no_of_input*sumsqmat)-(summat*summat));
+    d12 = sqrt((no_of_input*sumsqphy)- (sumphy* sumphy));
+        rmatphy = up1/ (d11*d12);
+    up2 = (no_of_input*sumphychem)-(sumchem * sumphy);
+    d21 = sqrt((no_of_input*sumsqphy)-(sumphy*sumphy));
+    d22 = sqrt((no_of_input*sumsqchem)- (sumchem* sumchem));
+        
+        rphychem =up2 / (d21*d22);
+    up3 = ((no_of_input*summatchem)-(summat * sumchem));
+    d31 = sqrt((no_of_input*sumsqmat)-(summat*summat));
+    d32 = sqrt((no_of_input*sumsqchem)- (sumchem * sumchem));
+        
+        rmatchem = up3/ (d31*d32);
+    
+        printf("%.2lf \n",rmatphy);
+        printf("%.2lf \n",rphychem);
+        printf("%.2lf \n",rmatchem);
+    //printf(" %.2lf \n %lf \n %lf \n", sumsqmat, sumsqphy, sumsqchem);
+    return 0;
+        }
+    
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    
+
